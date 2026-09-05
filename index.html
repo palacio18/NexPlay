@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="NexPlay: biblioteca personal de videojuegos con favoritos, estados, filtros y fichas completas.">
+    <meta name="keywords" content="videojuegos, biblioteca gaming, juegos favoritos, NexPlay">
+    <meta name="author" content="NexPlay">
+    <meta name="theme-color" content="#111416">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NexPlay">
+    <meta property="og:title" content="NexPlay | Biblioteca personal de videojuegos">
+    <meta property="og:description" content="Descubre, organiza y guarda tus videojuegos favoritos en NexPlay.">
+    <meta property="og:url" content="https://curious-strudel-967e3f.netlify.app/">
+    <meta property="og:image" content="https://curious-strudel-967e3f.netlify.app/imagenes/god-of-war.webp">
+    <meta property="og:image:alt" content="God of War en NexPlay">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NexPlay | Biblioteca personal de videojuegos">
+    <meta name="twitter:description" content="Descubre, organiza y guarda tus videojuegos favoritos en NexPlay.">
+    <meta name="twitter:image" content="https://curious-strudel-967e3f.netlify.app/imagenes/god-of-war.webp">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://curious-strudel-967e3f.netlify.app/">
+
+    <title>NexPlay | Biblioteca personal de videojuegos</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "NexPlay",
+        "url": "https://curious-strudel-967e3f.netlify.app/",
+        "description": "Biblioteca personal de videojuegos para descubrir, organizar y guardar juegos favoritos."
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header>
+    <nav class="barra-navegacion" aria-label="Navegación principal">
+    <a class="marca" href="#inicio" aria-label="NexPlay inicio">
+        <span class="marca-icono">N</span>
+        <span>Nex<span>Play</span></span>
+    </a>
+
+    <div class="enlaces-navegacion">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#contacto">Contacto</a>
+
+        <button id="tema" class="boton-tema" type="button">☀️ Tema claro</button>
+    </div>
+</nav>
+</header>
+
+    <!-- PRESENTACIÓN -->
+    <main id="inicio">
+    <section class="hero" aria-labelledby="tituloPrincipal">
+        <div class="hero-contenido">
+            <p class="etiqueta">COLECCIÓN PERSONAL · 2026</p>
+            <h1 id="tituloPrincipal">Historias que<br><em>merecen jugarse.</em></h1>
+
+            <p class="hero-descripcion">Un rincón para descubrir mis juegos favoritos, guardar ideas y compartir lo que estoy construyendo mientras aprendo desarrollo de software.</p>
+
+            <div class="hero-acciones">
+                <a class="boton boton-principal" href="#catalogo">Explorar colección <span>↗</span></a>
+                <button id="botonConocer" class="boton boton-secundario" type="button">Conocer más</button>
+            </div>
+
+            <p id="mensaje" class="mensaje"></p>
+        </div>
+        <div class="hero-metricas" aria-label="Estadísticas de la colección">
+            <div><strong id="estadisticaJuegos">03</strong><span>Juegos guardados</span></div>
+            <div><strong id="estadisticaGeneros">02</strong><span>Géneros</span></div>
+            <div><strong id="estadisticaFavoritos">00</strong><span>Favoritos</span></div>
+            <div><strong id="estadisticaCompletados">02</strong><span>Completados</span></div>
+        </div>
+    </section>
+    
+
+
+    <!-- FORMULARIO -->
+    <section id="contacto" class="formulario seccion-contenido">
+        <div class="seccion-introduccion">
+            <p class="etiqueta">PONTE EN CONTACTO</p>
+            <h2>Hablemos de juegos.</h2>
+            <p>Cuéntame qué estás jugando y lo añadimos a la conversación.</p>
+        </div>
+
+        <form id="formularioContacto" class="formulario-panel">
+            <label for="nombre">Tu nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" autocomplete="name" required>
+
+            <label for="juego">Juego favorito</label>
+            <input type="text" id="juego" name="juego" placeholder="Tu juego favorito" required>
+
+            <button id="enviar" class="boton boton-principal" type="submit">Enviar recomendación <span>→</span></button>
+
+            <p id="resultado" class="resultado" role="status" aria-live="polite"></p>
+        </form>
+
+    </section>
+
+
+    <!-- PROYECTOS -->
+<section id="catalogo" class="proyectos seccion-contenido">
+
+    <div class="catalogo-cabecera">
+        <div>
+            <p class="etiqueta">MI BIBLIOTECA</p>
+            <h2>Juegos que dejan huella.</h2>
+        </div>
+        <p class="catalogo-introduccion">Una selección pequeña, pero cuidadosamente elegida.</p>
+    </div>
+
+    <!-- BUSCADOR -->
+    <div class="herramientas-catalogo">
+        <label class="campo-busqueda" for="buscador">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" id="buscador" placeholder="Buscar en la colección...">
+        </label>
+
+    <!-- FILTROS -->
+        <div class="filtros" aria-label="Filtrar por género">
+
+        <button class="activo" data-genero="todos">Todos</button>
+
+        <button data-genero="accion">Acción</button>
+
+        <button data-genero="terror">Terror</button>
+
+        <button data-genero="aventura">Aventura</button>
+
+        <button data-genero="rpg">RPG</button>
+
+        <button data-genero="mundo-abierto">Mundo abierto</button>
+
+        <button data-genero="shooter">Shooter</button>
+
+        <button data-genero="supervivencia">Supervivencia</button>
+
+        <button data-genero="deportes">Deportes</button>
+
+        <button data-favoritos="true">♡ Favoritos</button>
+
+        </div>
+
+        <label class="ordenar-catalogo" for="ordenarPor">
+            <span>Ordenar por</span>
+            <select id="ordenarPor">
+                <option value="calificacion">Mejor calificación</option>
+                <option value="nombre">Nombre A-Z</option>
+                <option value="reciente">Más reciente</option>
+                <option value="antiguo">Más antiguo</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="filtros filtros-estados" aria-label="Filtrar por estado">
+        <span class="filtros-titulo">Mi biblioteca</span>
+        <button class="activo" data-estado-filtro="todos">Todos</button>
+        <button data-estado-filtro="jugando">🟢 Jugando</button>
+        <button data-estado-filtro="completados">🔵 Completados</button>
+        <button data-estado-filtro="pendientes">🟡 Pendientes</button>
+    </div>
+
+    <p id="resultadoBusqueda" class="resultado-busqueda" aria-live="polite"></p>
+    <p id="sinResultados" class="sin-resultados" hidden>No encontramos ningún juego.</p>
+
+
+    <!-- TARJETAS -->
+    <div class="tarjetas">
+
+        <article class="tarjeta" data-id="warzone" data-genero="accion" data-titulo="Warzone" data-imagen="imagenes/warzone.webp" data-genero-nombre="Acción" data-calificacion="4.8 / 5" data-descripcion="Combates intensos y competitivos en un campo de batalla que cambia en cada partida." data-plataforma="PC, PlayStation, Xbox" data-anio="2022" data-desarrollador="Infinity Ward / Raven Software" data-estado="Jugando">
+
+            <img
+                src="imagenes/warzone.webp"
+                alt="Warzone"
+            >
+
+    <div class="tarjeta-cuerpo">
+            <div class="tarjeta-meta"><span>ACCIÓN</span><span>★ 4.8</span></div>
+            <h3>Warzone</h3>
+            <span class="estado-badge estado-jugando">🟢 Jugando</span>
+
+    <p>
+        Combates intensos y competitivos en un campo de batalla que cambia en cada partida.
+    </p>
+
+    <div class="tarjeta-info-adicional">
+        <span>PC · PlayStation · Xbox</span>
+        <span>2022</span>
+    </div>
+
+    </div>
+
+    <div class="tarjeta-acciones">
+        <button type="button" class="boton-detalles">Ver detalles</button>
+        <button type="button" class="boton-favorito" aria-label="Añadir Warzone a favoritos" aria-pressed="false">♡</button>
+    </div>
+
+        </article>
+
+        <article class="tarjeta" data-id="resident-evil-4" data-genero="terror" data-titulo="Resident Evil 4" data-imagen="imagenes/resident-evil-4.webp" data-genero-nombre="Terror" data-calificacion="4.7 / 5" data-descripcion="Una experiencia de supervivencia y acción con una atmósfera tensa y memorable." data-plataforma="PC, PlayStation, Xbox" data-anio="2023" data-desarrollador="Capcom" data-estado="completados">
+
+            <img
+                src="imagenes/resident-evil-4.webp"
+                alt="Resident Evil 4"
+            >
+
+            <div class="tarjeta-cuerpo">
+            <div class="tarjeta-meta"><span>TERROR</span><span>★ 4.7</span></div>
+            <h3>Resident Evil 4</h3>
+            <span class="estado-badge estado-completados">🔵 Completados</span>
+
+            <p>
+                Una experiencia de supervivencia y acción con una atmósfera tensa y memorable.
+            </p>
+
+            <div class="tarjeta-info-adicional">
+                <span>PC · PlayStation · Xbox</span>
+                <span>2023</span>
+            </div>
+
+            </div>
+
+            <div class="tarjeta-acciones">
+                <button type="button" class="boton-detalles">Ver detalles</button>
+                <button type="button" class="boton-favorito" aria-label="Añadir Resident Evil 4 a favoritos" aria-pressed="false">♡</button>
+            </div>
+
+        </article>
+
+        <article class="tarjeta" data-id="god-of-war" data-genero="aventura" data-titulo="God of War" data-imagen="imagenes/god-of-war.webp" data-genero-nombre="Aventura" data-calificacion="4.9 / 5" data-descripcion="Una aventura épica sobre la familia, la mitología nórdica y las segundas oportunidades." data-plataforma="PlayStation, PC" data-anio="2018" data-desarrollador="Santa Monica Studio" data-estado="completados">
+
+            <img
+                src="imagenes/god-of-war.webp"
+                alt="God of War"
+            >
+
+            <div class="tarjeta-cuerpo">
+            <div class="tarjeta-meta"><span>AVENTURA</span><span>★ 4.9</span></div>
+            <h3>God of War</h3>
+            <span class="estado-badge estado-completados">🔵 Completados</span>
+
+            <p>
+                Una aventura épica sobre la familia, la mitología nórdica y las segundas oportunidades.
+            </p>
+
+            <div class="tarjeta-info-adicional">
+                <span>PlayStation · PC</span>
+                <span>2018</span>
+            </div>
+
+            </div>
+
+            <div class="tarjeta-acciones">
+                <button type="button" class="boton-detalles">Ver detalles</button>
+                <button type="button" class="boton-favorito" aria-label="Añadir God of War a favoritos" aria-pressed="false">♡</button>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="proyectos-desarrollo seccion-contenido">
+    <div class="catalogo-cabecera">
+        <div>
+            <p class="etiqueta">MI TRABAJO DIGITAL</p>
+            <h2>Proyectos que estoy construyendo.</h2>
+        </div>
+        <p class="catalogo-introduccion">Experimentos y herramientas creadas mientras aprendo a desarrollar software.</p>
+    </div>
+
+    <div class="proyectos-grid">
+        <article class="proyecto-item">
+            <div class="proyecto-cabecera"><span>01 / WEB</span><span>EN CURSO</span></div>
+            <h3>NexPlay</h3>
+            <p>Biblioteca personal de videojuegos con filtros, favoritos, estados y almacenamiento local.</p>
+            <div class="tecnologias"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <a href="#inicio" class="enlace-proyecto">Ver proyecto <span>↗</span></a>
+        </article>
+
+        <article class="proyecto-item">
+            <div class="proyecto-cabecera"><span>02 / JAVASCRIPT</span><span>PRÓXIMO</span></div>
+            <h3>Bitácora de código</h3>
+            <p>Un espacio para documentar aprendizajes, pequeños experimentos y nuevas ideas digitales.</p>
+            <div class="tecnologias"><span>JavaScript</span><span>DOM</span><span>APIs</span></div>
+            <a href="#contacto" class="enlace-proyecto">Hablar del proyecto <span>→</span></a>
+        </article>
+    </div>
+</section>
+
+<!-- AGREGAR JUEGO -->
+<section id="agregar" class="agregar-juego seccion-contenido">
+    <div class="seccion-introduccion">
+        <p class="etiqueta">AMPLÍA LA BIBLIOTECA</p>
+        <h2 id="tituloFormularioJuego">Agrega tu próximo favorito.</h2>
+        <p>Completa la ficha y aparecerá al instante en tu colección personal.</p>
+    </div>
+
+    <form id="formularioJuego" class="formulario-juego">
+        <div class="campo-formulario campo-completo">
+            <label for="nombreJuego">Nombre</label>
+            <input type="text" id="nombreJuego" placeholder="Ej. Elden Ring" required>
+        </div>
+
+        <div class="campo-formulario">
+            <label for="generoJuego">Género</label>
+            <select id="generoJuego" required>
+                <option value="accion">Acción</option>
+                <option value="terror">Terror</option>
+                <option value="aventura">Aventura</option>
+                <option value="rpg">RPG</option>
+                <option value="mundo-abierto">Mundo abierto</option>
+                <option value="shooter">Shooter</option>
+                <option value="supervivencia">Supervivencia</option>
+                <option value="deportes">Deportes</option>
+            </select>
+        </div>
+
+        <div class="campo-formulario">
+            <label for="calificacionJuego">Calificación</label>
+            <select id="calificacionJuego" required>
+                <option value="5.0 / 5">★★★★★ 5.0</option>
+                <option value="4.5 / 5">★★★★☆ 4.5</option>
+                <option value="4.0 / 5">★★★★☆ 4.0</option>
+                <option value="3.5 / 5">★★★☆☆ 3.5</option>
+            </select>
+        </div>
+
+        <div class="campo-formulario">
+            <label for="estadoJuego">Estado</label>
+            <select id="estadoJuego" required>
+                <option value="jugando">🟢 Jugando</option>
+                <option value="completados">🔵 Completados</option>
+                <option value="pendientes">🟡 Pendientes</option>
+            </select>
+        </div>
+
+        <div class="campo-formulario campo-completo">
+            <label for="descripcionJuego">Descripción</label>
+            <textarea id="descripcionJuego" rows="4" placeholder="¿Qué hace especial a este juego?" required></textarea>
+        </div>
+
+        <div class="campo-formulario">
+            <label for="plataformaJuego">Plataforma</label>
+            <input type="text" id="plataformaJuego" placeholder="PC, PlayStation" required>
+        </div>
+
+        <div class="campo-formulario">
+            <label for="anioJuego">Año</label>
+            <input type="number" id="anioJuego" min="1970" max="2100" placeholder="2026" required>
+        </div>
+
+        <div class="campo-formulario campo-imagen">
+            <label for="imagenJuego">Imagen de portada</label>
+            <input type="file" id="imagenJuego" accept="image/*" required>
+        </div>
+
+        <div class="acciones-formulario campo-completo">
+            <button id="guardarJuego" class="boton boton-principal" type="submit">Agregar juego <span>＋</span></button>
+            <button id="cancelarEdicion" class="boton boton-secundario" type="button" hidden>Cancelar</button>
+        </div>
+        <p id="resultadoJuego" class="resultado campo-completo" role="status"></p>
+    </form>
+</section>
+
+</main>
+
+<footer>
+    <p><strong>NexPlay</strong> / Hecho con curiosidad y muchas partidas.</p>
+    <span>© 2026</span>
+</footer>
+
+<!-- VENTANA DE DETALLES -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="tituloModal" aria-describedby="descripcionModal" aria-hidden="true">
+
+    <div class="modal-contenido">
+
+        <button id="cerrarModal" type="button" aria-label="Cerrar detalles">
+            ✖
+        </button>
+
+        <div class="modal-encabezado">
+            <img id="imagenModal" src="imagenes/god-of-war.webp" alt="">
+            <div>
+                <p id="generoModal" class="etiqueta">AVENTURA</p>
+                <h2 id="tituloModal">Nombre del juego</h2>
+            </div>
+        </div>
+
+        <p id="descripcionModal">Información del juego.</p>
+
+        <div class="ficha-datos">
+            <div><span>Calificación</span><strong id="calificacionModal">-</strong></div>
+            <div><span>Plataforma</span><strong id="plataformaModal">-</strong></div>
+            <div><span>Año</span><strong id="anioModal">-</strong></div>
+            <div><span>Desarrollador</span><strong id="desarrolladorModal">-</strong></div>
+            <div><span>Estado</span><strong id="estadoModal" class="estado">-</strong></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
